@@ -1,0 +1,30 @@
+
+== Building a Native Image
+
+Download https://github.com/oracle/graal/releases[GraalVM] and install it (add the bin dir to you path and set the `JAVA_HOME` to point to GraalVM). You can also use https://sdkman.io/[sdkman] to download it. You will need GraalVM 1.0.0-rc5.
+
+Then build an image:
+
+```
+$ native-image --no-server -H:Name=target/app -H:ReflectionConfigurationFiles=graal-netty.json -Dio.netty.noUnsafe=true -H:+ReportUnsupportedElementsAtRuntime -Dfile.encoding=UTF-8 -cp ".:$(echo target/dependency/BOOT-INF/lib/*.jar | tr ' ' ':')":target/dependency/BOOT-INF/classes:target/dependency com.example.FuApplication
+```
+
+Then run it:
+
+```
+$ ./target/app
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                        
+
+...
+14:30:45.278 [reactor-http-nio-1] DEBUG reactor.netty.tcp.TcpServer - [id: 0xdc9e0f8b, L:/0:0:0:0:0:0:0:0:8080] Bound new server
+14:30:45.278 [main] INFO org.springframework.boot.web.embedded.netty.NettyWebServer - Netty started on port(s): 8080
+14:30:45.278 [main] INFO org.springframework.boot.SpringApplication - Started application in 0.013 seconds (JVM running for 0.013)
+```
+
