@@ -1,0 +1,10 @@
+[
+	{
+		"name": "com.example.SampleHandler",
+		"allDeclaredConstructors": true
+	},
+	{
+		"name": "org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor",
+		"allDeclaredConstructors": true
+	}
+]
