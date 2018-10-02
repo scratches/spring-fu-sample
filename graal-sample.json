@@ -4,6 +4,10 @@
 		"allDeclaredConstructors": true
 	},
 	{
+		"name": "com.example.SampleService",
+		"allDeclaredConstructors": true
+	},
+	{
 		"name": "org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor",
 		"allDeclaredConstructors": true
 	}
